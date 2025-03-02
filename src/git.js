@@ -208,7 +208,7 @@ export default class Git {
 
 	async changes(destination) { // gets array of git diffs for the destination, which either can be a file or a dict
 		const output = await execCmd(
-			`git diff HEAD ${ destination }`,
+			`git diff HEAD:${ destination }`,
 			this.workingDir
 		)
 		return Object.values(this.parseGitDiffOutput(output))
